@@ -4,7 +4,7 @@ from pygments.token import *
 
 class MapLexer(RegexLexer):
     name = "Map"
-    aliases = ['Map']
+    aliases = ['map']
     filenames = ['*.map']
 
     tokens = {
@@ -13,7 +13,8 @@ class MapLexer(RegexLexer):
             (r'(\s*)(})', bygroups(Text, Punctuation))
         ],
         'rule_start': [
-            (r'([a-zA-Z\-_:<>?]*)(\s*)(=>)(\s*)', bygroups(Name.Variable, Text, Operator, Text), 'rule_end'),
+            (r'([a-zA-Z\-_:<>]*)(\?)(\s*)(=>)(\s*)', bygroups(Name.Variable, Keyword.Reserved, Text, Operator, Text), 'rule_end'),
+            (r'([a-zA-Z\-_:<>]*)(\s*)(=>)(\s*)', bygroups(Name.Variable, Text, Operator, Text), 'rule_end'),
             (r'', Text, "#pop")
         ],
         'rule_end': [
