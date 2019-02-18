@@ -1,0 +1,10 @@
+{
+    <seq_name> => {
+        :total => int,
+        :go => [{
+            :go_term => string,
+            :protein_count => int,
+            :name? => string
+        }]
+    }
+}
